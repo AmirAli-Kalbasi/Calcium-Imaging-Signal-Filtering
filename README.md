@@ -94,7 +94,7 @@ data.temporal = ...; % Matrix of calcium signals where each row represents a cel
 % Define the list of very noisy cells (e.g., indices of noisy cells)
 result_list_very_noisy_cells = ....;
 
-% Define the length of the list (assuming 40 as the maximum index)
+% Define the length of the list
 list_length = size(data.temporal, 1);
 
 % Create a copy of the original signals
