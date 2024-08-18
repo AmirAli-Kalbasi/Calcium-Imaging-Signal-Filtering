@@ -77,6 +77,11 @@ end
 fprintf("100%%\n")
 ```
 
+![Picture1](https://github.com/user-attachments/assets/8bbf4879-5ac7-4ba1-8ab5-e70da33c4e1a)
+
+![Picture4](https://github.com/user-attachments/assets/9fc5c7bf-60de-4f6e-bab3-faa412c1e188)
+
+
 ## Installation
 Simply clone the repository and add the MATLAB files to your project:
 
