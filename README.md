@@ -11,6 +11,19 @@ This repository contains a MATLAB function for filtering calcium imaging signals
 ## Function Overview
 The main function, `filter_calcium_signal`, processes calcium imaging data to retain parts of each cell's signal that are correlated with a reference signal. It offers the ability to adjust several parameters to tailor the filtering process to your specific data and analysis needs.
 
+## Algorithm Overview:
+Explanation:
+Using the Signal Itself for Filtering: The first image demonstrates the process where the signal itself is used as the reference for filtering. This method is useful when you assume that the pattern is consistent within the same signal, and you aim to emphasize regions that strongly correlate with the overall detected pattern.
+
+Using a Reference Signal for Filtering: The second image illustrates the process when a separate reference signal is used to filter other signals. This approach is ideal when you have a trusted reference signal (such as the best-detected cell) and want to filter other signals to highlight regions that match this reference pattern.
+
+These images provide an algorithm overview, visually explaining how the filtering process works—whether by using the signal itself or a reference signal—and how correlation and peak detection are applied to isolate relevant parts of the signal.
+
+![Picture1](https://github.com/user-attachments/assets/b93e2a03-3a0e-41e8-a91e-c6cad44fafc6)
+
+
+![Picture4](https://github.com/user-attachments/assets/49eef8d2-332a-415b-b354-488e150076f1)
+
 ### Steps:
 1. **Peak Detection in Reference Signal**:
    - The function first detects peaks in the `ref_signal` (Reference signal, typically from the best detected cell) using the Pan-Tompkins algorithm. This algorithm is well-suited for calcium imaging data due to the similar transient spike patterns observed, analogous to QRS complexes in ECG signals.
@@ -76,11 +89,6 @@ for cell_i_counter = 1:size(data.temporal, 1)
 end
 fprintf("100%%\n")
 ```
-
-![Picture1](https://github.com/user-attachments/assets/8bbf4879-5ac7-4ba1-8ab5-e70da33c4e1a)
-
-![Picture4](https://github.com/user-attachments/assets/9fc5c7bf-60de-4f6e-bab3-faa412c1e188)
-
 
 ## Installation
 Simply clone the repository and add the MATLAB files to your project:
