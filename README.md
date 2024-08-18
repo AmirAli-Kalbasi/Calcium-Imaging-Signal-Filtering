@@ -40,6 +40,9 @@ The main function, `filter_calcium_signal`, processes calcium imaging data to re
 - `fs`: Sampling frequency of the calcium imaging data (default = 1000).
 - `pattern_len`: Length of the pattern used for correlation (default = 50).
 
+#### Handling Very Noisy Cells
+Very Noisy Cells: In the input (consider_peak), you can define a list (very_noisy_cells) where each element is set to 1 if the signal is not too noisy (i.e., it should be processed normally), or 0 if the signal is too noisy. For cells marked as too noisy, the function will rely more on correlation rather than thresholding during filtering, allowing for more aggressive noise suppression.
+
 ### Output:
 - `filtered_signals`: A matrix of filtered signals, corresponding to the input `signal_data`, with non-relevant portions attenuated.
 
@@ -58,16 +61,10 @@ This tool is particularly useful for researchers analyzing calcium imaging data 
 data.temporal = ...; % Matrix of calcium signals where each row represents a cell
 
 % Define the list of very noisy cells (e.g., indices of noisy cells)
-very_noisy_cells = [];
+result_list_very_noisy_cells = ....;
 
 % Define the length of the list (assuming 40 as the maximum index)
 list_length = size(data.temporal, 1);
-
-% Create an array of ones with the specified length
-result_list_very_noisy_cells = ones(1, list_length);
-
-% Set the elements at the indices specified in very_noisy_cells to zero
-result_list_very_noisy_cells(very_noisy_cells) = 0;
 
 % Create a copy of the original signals
 data.temporal_copy = data.temporal;
